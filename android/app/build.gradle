@@ -49,6 +49,10 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+
+        // https://github.com/flutter/flutter/issues/53047#issuecomment-656536081
+        // Cuz Firebase needs it :facepalm:
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -64,4 +68,8 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    // https://github.com/flutter/flutter/issues/53047#issuecomment-656536081
+    // Cuz Firebase needs it :facepalm:
+    implementation 'com.android.support:multidex:2.0.1'
+}
